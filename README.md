@@ -185,3 +185,16 @@ Whichever stack you choose, the final report must land in the `merchant_daily_ri
 - **What to submit:** a git repository (or zip) containing your pipeline code, your additional test data, and `README_RESULTS.md`, with instructions to run everything from scratch (assume only Docker and your chosen runtime are installed).
 - **AI tools:** you may use AI assistants and any internet resources. You are responsible for understanding every line you submit — the follow-up interview will dig into your decisions.
 
+---
+
+## Minimal Expected Delivery
+
+To be explicit about scope: **do not over-engineer**. A submission meets the bar if it includes:
+
+1. **A runnable pipeline** (single script or SQL file is fine) that loads the base *and* starter edge-case CSVs and populates `merchant_daily_risk_reports` with correct values for all seven columns.
+2. **Idempotency:** running the pipeline twice produces the same report (no duplicated or inflated rows).
+3. **Edge cases handled:** duplicates, out-of-order events, partial captures/refunds, disputes, and fraud signals — a documented, defensible rule for each is enough; no exhaustive anomaly framework required.
+4. **`README_RESULTS.md`** covering assumptions, quality checks, idempotency, and the production-scale design discussion (prose only).
+
+Anything beyond this (such as orchestration frameworks, containerized pipelines, dashboards, CI) is welcome but **not required** and earns no extra credit over a smaller, correct, well-documented solution.
+
